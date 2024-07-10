@@ -9,16 +9,16 @@ import {
 import { readFileSync } from 'fs';
 
 async function bootstrap() {
-  const httpsOptions = {
-    key: readFileSync('/etc/letsencrypt/live/nodejsapi.in/privkey.pem'),
-    cert: readFileSync('/etc/letsencrypt/live/nodejsapi.in/fullchain.pem'),
-  };
+  // const httpsOptions = {
+  //   key: readFileSync('/etc/letsencrypt/live/nodejsapi.in/privkey.pem'),
+  //   cert: readFileSync('/etc/letsencrypt/live/nodejsapi.in/fullchain.pem'),
+  // };
 
   const app = await NestFactory.create<NestExpressApplication>(
     AppModule,
     new ExpressAdapter(),
     {
-      httpsOptions,
+      // httpsOptions,
     },
   );
   app.setGlobalPrefix('identity/api');
